@@ -7,6 +7,42 @@
     <title>Calorie Counter</title>
 </head>
 <body>
-    <h1>Welcome to your first of many Projects</h1>
+    <main>
+        <h1>Welcome to your first of many Projects</h1>
+        <h1> Calorie Counter</h1>
+        <div class="container">
+            <form id="calorie-counter">
+                <!-- Users should be able to select a meal type to input their calorie counts -->
+                 <!-- Drop down menu and button to add a meal type -->
+                <label for="budget">Budget</label>
+                <input required id="budget" type="number" min="0" placeholder="Daily calorie budget"/>
+                <fieldset id="breakfast">
+                    <legend>Breakfast</legend>
+                    <div class="input-container"></div>
+                </fieldset>
+                <fieldset id="lunch">
+                    <legend>Lunch</legend>
+                    <div class="input-container"></div>
+                </fieldset>
+                <fieldset id="dinner">
+                    <legend>Dinner</legend>
+                    <div class="input-container"></div>
+                </fieldset>
+                <fieldset id="snacks">
+                    <legend>Snacks</legend>
+                    <div class="input-container"></div>
+                </fieldset>
+                <fieldset id="exercise">
+                    <legend>Exercise</legend>
+                    <div class="input-container"></div>
+                </fieldset>
+                <div class="controls"><span>
+                    <label for="entry-dropdown">Add food or exercise:</label>
+                    <select id="entry-dropdown" name="options"></select>
+                    <button id="add-entry">Add Entry</button>
+                </span></div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
