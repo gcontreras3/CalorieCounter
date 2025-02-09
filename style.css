@@ -56,7 +56,7 @@
   input,
   select {
     min-height: 24px;
-    color: var(--dark-blue);
+    color: var(--white);
   }
   
   fieldset,
