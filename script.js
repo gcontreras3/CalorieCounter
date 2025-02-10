@@ -13,11 +13,14 @@ function cleanInputString(str){
     // In regex, shorthand character classes allow you to match specific characters
     // regex can alter the pattern matching behavior, "global" will tell the pattern to continue looking after it has found a match.
     const regex = /[+-\s]/g;
-    
+    // replace takes two parameters
     return str.replace(regex, "");
 }
 // console.log(cleanInputString("+-99"));
 function isInvalidInput(str){
     // Includes a + modifier, allows you to match a pattern that occurs one or more times.
-    const regex = /[0-9]+e[0-9]+/i;
+    // Shorthand character class to match any digit: \d
+    // Strings have a .match() method.
+    const regex = /\d+e\d+/i;
+    str.match(regex);
 }
