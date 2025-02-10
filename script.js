@@ -20,7 +20,21 @@ function cleanInputString(str){
 function isInvalidInput(str){
     // Includes a + modifier, allows you to match a pattern that occurs one or more times.
     // Shorthand character class to match any digit: \d
-    // Strings have a .match() method.
+    // Strings have a .match() method. Which returns an array with any matches found in the string.
     const regex = /\d+e\d+/i;
-    str.match(regex);
+    return str.match(regex);
+}
+    // testing isInvalidInput function
+console.log(isInvalidInput("1e3"));
+console.log(cleanInputString("++---Hello-+++"))
+
+    // testing a valid input 
+console.log(isInvalidInput("10")); // returns null, match method with no matches found.
+    // testing the value of entryDropdown  
+console.log(entryDropdown.value);
+
+// Allow users to add entries to the calorie counter
+function addEntry(){
+    // Need to know which category the entry goes in.
+    const targetId = "#" + entryDropdown.value;
 }
