@@ -18,5 +18,6 @@ function cleanInputString(str){
 }
 // console.log(cleanInputString("+-99"));
 function isInvalidInput(str){
-    const regex = /[0-9]e[0-9]/i;
+    // Includes a + modifier, allows you to match a pattern that occurs one or more times.
+    const regex = /[0-9]+e[0-9]+/i;
 }
