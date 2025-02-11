@@ -36,6 +36,8 @@ console.log(entryDropdown.value);
 // Allow users to add entries to the calorie counter
 function addEntry(){
     // Need to know which category the entry goes in.
-    const targetId = "#" + entryDropdown.value;
-    const targetInputContainer = document.querySelector(targetId + ' .input-container');
+    // const targetId = "#" + entryDropdown.value;
+    const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length;
+    const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>`;
 }
