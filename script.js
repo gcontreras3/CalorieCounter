@@ -37,4 +37,5 @@ console.log(entryDropdown.value);
 function addEntry(){
     // Need to know which category the entry goes in.
     const targetId = "#" + entryDropdown.value;
+    const targetInputContainer = document.querySelector(targetId + ' .input-container');
 }
