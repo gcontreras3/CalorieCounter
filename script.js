@@ -59,7 +59,17 @@ function calculateCalories (e) {
     const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
     const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
     const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
-    const budgetCalories = getCaloriesFromInputs(budgetNumberInput[])
+    const budgetCalories = getCaloriesFromInputs([budgetNumberInput])
+    if (isError){
+        return
+    }
+    // Calorie calculations.
+    // Need to know if the user is in a caloric surplus or deficit.
+    // Burning as many calories as you consume is called maintenace, can be thought of as a surplus.
+    const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
+    const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
+    const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
+    output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}"></span>`;
 }
 function getCaloriesFromInputs(list){
     let calories = 0;
@@ -75,6 +85,7 @@ function getCaloriesFromInputs(list){
         console.log(list);
         return calories;
     }
+    
 }
 
 addEntryButton.addEventListener("click", addEntry);
