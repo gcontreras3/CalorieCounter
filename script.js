@@ -38,10 +38,16 @@ function addEntry(){
     // Need to know which category the entry goes in.
     // const targetId = "#" + entryDropdown.value;
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
-    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length;
+    const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
     <input type="text" placeholder="Name" id="${entryDropdown.value}-${entryNumber}-name" />
     <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
     <input id="${entryDropdown.value}-${entryNumber}-calories" type="number" min="0" placeholder="Calories" />`;
-    targetInputContainer.innerHTML += HTMLString;
+    // Call insertAdjacentHTML on targetInputContainer without changing its existing content.
+    targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 }
+function getCaloriesFromInputs(list){
+    let calories = 0;
+}
+addEntryButton.addEventListener("click", addEntry);
+
