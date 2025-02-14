@@ -100,6 +100,7 @@ function clearForm() {
     budgetNumberInput.value = "";
     output.innerText = "";
     output.classList.add("hide");
+    clearButton.addEventListener("click", clearForm);
 }
 
 addEntryButton.addEventListener("click", addEntry);
