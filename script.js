@@ -4,7 +4,6 @@ const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
 const output = document.getElementById('output');
-
 let isError = false;
 
 function cleanInputString(str){
@@ -14,7 +13,7 @@ function cleanInputString(str){
     // regex can alter the pattern matching behavior, "global" will tell the pattern to continue looking after it has found a match.
     const regex = /[+-\s]/g;
     // replace takes two parameters
-    return str.replace(regex, "");
+    return str.replace(regex, '');
 }
 // console.log(cleanInputString("+-99"));
 function isInvalidInput(str){
@@ -25,13 +24,15 @@ function isInvalidInput(str){
     return str.match(regex);
 }
     // testing isInvalidInput function
-console.log(isInvalidInput("1e3"));
-console.log(cleanInputString("++---Hello-+++"))
+// console.log(isInvalidInput("1e3"));
+// console.log(cleanInputString("++---Hello-+++"))
 
-    // testing a valid input 
-console.log(isInvalidInput("10")); // returns null, match method with no matches found.
-    // testing the value of entryDropdown  
+/*    testing a valid input 
+console.log(isInvalidInput("10")); 
+returns null, match method with no matches found.
+testing the value of entryDropdown  
 console.log(entryDropdown.value);
+*/
 
 // Allow users to add entries to the calorie counter
 function addEntry(){
@@ -49,6 +50,7 @@ function addEntry(){
 function calculateCalories (e) {
     e.preventDefault();
     isError = false;
+
     const breakfastNumberInputs = document.querySelectorAll('#breakfast input[type="number"]');
     const lunchNumberInputs = document.querySelectorAll('#lunch input[type="number"]');
     const dinnerNumberInputs = document.querySelectorAll('#dinner input[type="number"]');
@@ -69,15 +71,18 @@ function calculateCalories (e) {
     const consumedCalories = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories;
     const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
     const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
-    output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span>
+    output.innerHTML = `
+    <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span>
     <hr>
     <p>${budgetCalories} Calories Budgeted</p>
     <p>${consumedCalories} Calories Consumed</p>
-    <p>${exerciseCalories} Calories Burned</p>`;
+    <p>${exerciseCalories} Calories Burned</p>
+    `;
     output.classList.remove("hide");
 }
 function getCaloriesFromInputs(list){
     let calories = 0;
+
     for (const item of list) {
         const currVal = cleanInputString(item.value);
         const invalidInputMatch = isInvalidInput(currVal);
@@ -87,7 +92,7 @@ function getCaloriesFromInputs(list){
             return null;
         }
         calories += Number(currVal);
-        console.log(list);
+        // console.log(list);
         return calories;
     }
     
@@ -95,10 +100,10 @@ function getCaloriesFromInputs(list){
 function clearForm() {
     const inputContainers = Array.from(document.querySelectorAll(".input-container"));
     for (const container of inputContainers) {
-        container.innerHTML = "";
+        container.innerHTML = '';
     }
-    budgetNumberInput.value = "";
-    output.innerText = "";
+    budgetNumberInput.value = '';
+    output.innerText = '';
     output.classList.add("hide");
     clearButton.addEventListener("click", clearForm);
 }
